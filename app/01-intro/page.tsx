@@ -94,28 +94,30 @@ export default function Page() {
         </ItemContainer>
       </Grid>
       <h3 className="text-df-shade-lighter my-8 mt-16 text-2xl">IDEAS</h3>
-      <h4 className="my-8 text-xl">
-        Idea One: A toy that runs away from my dog barking
-      </h4>
-      <p>
-        A small toy, like a robot, that would have sound sensors and run in the
-        opposite direction from any noise.
-      </p>
-      <h4 className="my-8 text-xl">Idea Two: A fried egg machine</h4>
-      <p>
-        The machine would select an egg from a revolving holder of a half-dozen,
-        and crack it into ... a hot pan? Could it add the oil beforehand? Some
-        method of timing would switch it off? This is an attempt to make the
-        Chitty Chitty Bang Bang machine feasible in scale.
-      </p>
-      <h4 className="my-8 text-xl">
-        Idea Three: A suitcase that turns into a wardrobe
-      </h4>
-      <p>
-        Probably too ambitious... the smaller version could be a jewellery case
-        that turns into some kind of display? Like popping up into a revolving
-        display case.
-      </p>
+      <div className="m-auto max-w-xl">
+        <h4 className="my-8 text-xl">
+          Idea One: A toy that runs away from my dog barking
+        </h4>
+        <p>
+          A small toy, like a robot, that would have sound sensors and run in
+          the opposite direction from any noise.
+        </p>
+        <h4 className="my-8 text-xl">Idea Two: A fried egg machine</h4>
+        <p>
+          The machine would select an egg from a revolving holder of a
+          half-dozen, and crack it into ... a hot pan? Could it add the oil
+          beforehand? Some method of timing would switch it off? This is an
+          attempt to make the Chitty Chitty Bang Bang machine feasible in scale.
+        </p>
+        <h4 className="my-8 text-xl">
+          Idea Three: A suitcase that turns into a wardrobe
+        </h4>
+        <p>
+          Probably too ambitious... the smaller version could be a jewellery
+          case that turns into some kind of display? Like popping up into a
+          revolving display case.
+        </p>
+      </div>
     </div>
   );
 }
