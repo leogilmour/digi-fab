@@ -95,27 +95,32 @@ export default function Page() {
       </Grid>
       <h3 className="text-df-shade-lighter my-8 mt-16 text-2xl">IDEAS</h3>
       <div className="m-auto max-w-xl">
-        <h4 className="my-8 text-xl">
-          Idea One: A toy that runs away from my dog barking
-        </h4>
-        <p>
-          A small toy, like a robot, that would have sound sensors and run in
-          the opposite direction from any noise.
-        </p>
-        <h4 className="my-8 text-xl">Idea Two: A fried egg machine</h4>
+        <h4 className="my-8 text-xl">Idea One: A fried egg machine</h4>
         <p>
           The machine would select an egg from a revolving holder of a
           half-dozen, and crack it into ... a hot pan? Could it add the oil
           beforehand? Some method of timing would switch it off? This is an
           attempt to make the Chitty Chitty Bang Bang machine feasible in scale.
+          This is probably my preferred idea...
         </p>
         <h4 className="my-8 text-xl">
-          Idea Three: A suitcase that turns into a wardrobe
+          Idea Two: A suitcase that turns into a wardrobe
         </h4>
         <p>
-          Probably too ambitious... the smaller version could be a jewellery
-          case that turns into some kind of display? Like popping up into a
-          revolving display case.
+          A whole suitcase is probably too ambitious... the smaller version
+          could be a jewellery case that turns into some kind of display? Like
+          popping up into a revolving display case. Ok... this is quite extra. I
+          grew up watching Clueless 💅.
+        </p>
+        <h4 className="my-8 text-xl">
+          Idea Three: A toy that runs away from my dog barking
+        </h4>
+        <p>
+          A small toy, like a robot from robot wars, that would have sound
+          sensors and run in the opposite direction from any noise. It would be
+          shaped so that she could not pick it up with her mouth because... she
+          is quick to destroy things. So perhaps inspired by some defensive
+          bugs.
         </p>
       </div>
     </div>

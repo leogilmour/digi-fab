@@ -126,8 +126,8 @@ export default function Page() {
               alt="An image of my grandad John Haynes"
             />
             <Caption>
-              Growing up, I would hang out in my grandad’s workshop and he would
-              teach me how to make or fix things.
+              Throughout my childhood, I would hang out in my grandad’s workshop
+              and he would teach me how to make or fix things.
               <br />
               He was an engineer with many stories, like the time he set up the
               first television in Sydney University or his experience as an
