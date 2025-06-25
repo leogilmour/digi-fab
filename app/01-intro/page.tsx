@@ -69,7 +69,7 @@ export default function Page() {
           />
         </ItemContainer>
         <ItemContainer>
-          The carousel display for Fabergé egg... Fabergé egg in general
+          The carousel display for Fabergé eggs... Fabergé eggs in general
           <StyledImage
             src="/carousel.gif"
             alt="A carousel that turns with necklaces hanging instead of animals"
