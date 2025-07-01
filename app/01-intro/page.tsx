@@ -123,6 +123,32 @@ export default function Page() {
           🐞.
         </p>
       </div>
+      <h3 className="text-df-shade-lighter my-8 mt-16 text-2xl">
+        POST CLASS IDEA
+      </h3>
+      <div className="m-auto max-w-xl">
+        <h4 className="my-8 text-xl">
+          Final Idea: An alarm clock that wakes you with a cup of tea
+        </h4>
+        <p>
+          Inspired by the 60s/70s miracle machines “Teasmades” which for some
+          unknown reason faded in popularity. What could be better than being
+          woken up with a cup of tea in bed?
+        </p>
+        <p>
+          Basic features are an alarm clock which schedules the boiling water
+          but some even include lights. It would be fun to improve this variant
+          with a SAD light that slowly turned on in advance of the cup of tea.
+          Also, the option to sync with Amazon Alexa alarms or mobile phone
+          alarms.
+        </p>
+        <Image
+          src={
+            "https://i.etsystatic.com/15053930/r/il/a564e4/5727732395/il_fullxfull.5727732395_q2fv.jpg"
+          }
+          alt={"A Goblin Teasmade"}
+        />
+      </div>
     </div>
   );
 }
