@@ -1,39 +1,7 @@
 "use client";
 
-import Image from "next/image";
-import { JSX } from "react";
-
-function Grid({ children }: { children: JSX.Element[] }) {
-  return (
-    <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      {children}
-    </ul>
-  );
-}
-
-function ItemContainer({
-  children,
-}: {
-  children: string | JSX.Element | (string | JSX.Element)[];
-}) {
-  return (
-    <li className="max-w-xs justify-center justify-items-center gap-4 text-center align-top">
-      {children}
-    </li>
-  );
-}
-
-function StyledImage({ src, alt }: { src: string; alt: string }) {
-  return (
-    <Image
-      src={src}
-      alt={alt}
-      width={160}
-      height={160}
-      className="shadow-df-shade mt-4 rounded-md shadow-2xl"
-    />
-  );
-}
+import { Grid, ItemContainer } from "../../components/gridStuff";
+import { PlainSmallImage } from "../../components/images";
 
 export default function Page() {
   return (
@@ -48,14 +16,14 @@ export default function Page() {
         <ItemContainer>
           The breakfast machine from Chitty Chitty Bang Bang (see also, Wallace
           and Gromit...)
-          <StyledImage
+          <PlainSmallImage
             src="/chitty-bang.jpeg"
             alt="The breakfast machine scene from the film"
           />
         </ItemContainer>
         <ItemContainer>
           Iris van Herpen
-          <StyledImage
+          <PlainSmallImage
             src="/iris-van-herpen.gif"
             alt="gif of Iris V H moving outfit on catwalk"
           />
@@ -63,21 +31,21 @@ export default function Page() {
 
         <ItemContainer>
           This floating table...
-          <StyledImage
+          <PlainSmallImage
             src="/floating-table.png"
             alt="floating table with tension instead of legs"
           />
         </ItemContainer>
         <ItemContainer>
           The carousel display for Fabergé eggs... Fabergé eggs in general
-          <StyledImage
+          <PlainSmallImage
             src="/carousel.gif"
             alt="A carousel that turns with necklaces hanging instead of animals"
           />
         </ItemContainer>
         <ItemContainer>
           Robot wars
-          <StyledImage src="/robot-wars.gif" alt="robot wars spin attack" />
+          <PlainSmallImage src="/robot-wars.gif" alt="robot wars spin attack" />
         </ItemContainer>
         <ItemContainer>
           Simone Giertz of course...
@@ -145,7 +113,10 @@ export default function Page() {
           milk in a tiny thermos flask. It would be cool if a little robot arm
           opened the flask and poured in the milk too 🥛🐄.
         </p>
-        <Image src={"/goblin-teasmade.jpg"} alt={"A Goblin Teasmade"} />
+        <PlainSmallImage
+          src={"/goblin-teasmade.jpg"}
+          alt={"A Goblin Teasmade"}
+        />
       </div>
     </div>
   );
