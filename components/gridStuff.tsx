@@ -8,6 +8,14 @@ export function Grid({ children }: { children: JSX.Element | JSX.Element[] }) {
   );
 }
 
+export function WideGrid({
+  children,
+}: {
+  children: JSX.Element | JSX.Element[];
+}) {
+  return <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">{children}</ul>;
+}
+
 export function ItemContainer({
   children,
 }: {
@@ -15,6 +23,18 @@ export function ItemContainer({
 }) {
   return (
     <li className="max-w-xs justify-center justify-items-center gap-4 text-center align-top">
+      {children}
+    </li>
+  );
+}
+
+export function WideContainer({
+  children,
+}: {
+  children: string | JSX.Element | (string | JSX.Element)[];
+}) {
+  return (
+    <li className="max-w-xl justify-center justify-items-center gap-4 align-top">
       {children}
     </li>
   );

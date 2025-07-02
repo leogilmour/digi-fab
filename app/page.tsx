@@ -19,7 +19,7 @@ export default function Home() {
         </h1>
         <div className="flex flex-wrap items-center justify-start gap-4 align-middle sm:flex-row">
           <ButtonLink href={"/01-intro"}>01 - Intro</ButtonLink>
-          <ButtonLink>02 - 2D Design</ButtonLink>
+          <ButtonLink href="/02-2d-design-cutting">02 - 2D Design</ButtonLink>
           <ButtonLink>03 - Fabrication</ButtonLink>
           <ButtonLink>04 - Programming</ButtonLink>
           <ButtonLink>05 - 3D Design</ButtonLink>
