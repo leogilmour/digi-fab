@@ -9,7 +9,7 @@ export function ButtonLink({
 }: {
   href?: string;
   children: string;
-  download: boolean;
+  download?: boolean;
 }) {
   // download file
   if (download) {
