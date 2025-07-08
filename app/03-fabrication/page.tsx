@@ -134,7 +134,7 @@ export default function Page() {
         <WideContainer>
           <p>Finding the current drawn by the circuit:</p>
           <PlainMediumImage
-            src="/volts.jpg"
+            src="/volts.JPG"
             alt="Close up of multimeter volt reading"
           />
           <p>My volt reading (parallel across the motor)</p>
