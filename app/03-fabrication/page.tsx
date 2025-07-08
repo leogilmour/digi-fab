@@ -57,16 +57,15 @@ export default function Page() {
           </div>
         </WideContainer>
         <WideContainer>
-          The motor sits on the base on a platform holder to raise it to the
-          external gear that sticks underneath the floor of the carousel. As the
-          motor turns its own gear it turns the carousel base. This is connected
-          to the carousel top with some struts. As the carousel turns, its top
-          gears are spun by a centre gear which is fixed to the grounded
-          spindle. These twirling gears have fixed M5 screws which twirl the
-          artwork (in this instance, jewellery) as if carousel figurines.
+          <p>
+            The motor sits on the base on a raised holder to bring it inline
+            with the external gear that sticks underneath the floor of the
+            carousel. As the motor turns its own gear it turns the carousel base
+            around it.
+          </p>
           <div className="my-4">
             <Image
-              src="/top-gears.gif"
+              src="/motor-external.gif"
               alt="9 gears moving in sync"
               unoptimized
               width={300}
@@ -74,6 +73,27 @@ export default function Page() {
               className="rounded-md"
             />
           </div>
+          <p>
+            This is connected to the carousel top with some struts. As the
+            carousel turns, its top gears are spun by a centre gear which is
+            fixed to the grounded spindle. These twirling gears have fixed M5
+            screws which twirl the artwork (in this instance, jewellery) as if
+            carousel figurines.
+          </p>
+          <div className="my-4">
+            <iframe
+              width="315"
+              height="560"
+              src="https://www.youtube.com/embed/NJEbWZKqnW4"
+              title="It moves!"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+          <p>
+            You have to look very closely to see that the bulldog clips ARE
+            turning (twirling!)
+          </p>
         </WideContainer>
       </WideGrid>
       <h3 className="text-df-shade-lighter my-8 text-2xl">Review</h3>
@@ -87,6 +107,20 @@ export default function Page() {
         </WideContainer>
         <WideContainer>
           <p>
+            On reviewing the earrings turning, because the gears they are
+            attached to have the same number of teeth as the fixed central gear,
+            each earring does one revolution in the same time the carousel does
+            one revolution. Their spinning movement is therefore not
+            discernible.
+          </p>
+          <br />
+          <p>
+            I need the nine earring gears to have 1/4 the number of teeth as the
+            central gear.
+          </p>
+        </WideContainer>
+        <WideContainer>
+          <p>
             The corrugated cardboard means the interconnecting face of the gear
             teeth does not have a true surface. This mean the gears got caught
             on each other. It works as a proof of concept but I need to trace
@@ -94,27 +128,14 @@ export default function Page() {
           </p>
           <div className="my-4">
             <Image
-              src="/motor-external.gif"
-              alt="9 gears moving in sync"
+              src="/janky-gears.gif"
+              alt="Gears getting caught on each other because theyre corrugated cardboard"
               unoptimized
               width={300}
               height={300}
               className="rounded-md"
             />
           </div>
-        </WideContainer>
-        <WideContainer>
-          <p>
-            On reviewing the earrings turning, because the gears they are
-            attached to have the same number of teeth as the fixed central gear,
-            each earring does one revolution in the same time the carousel does
-            one revolution. Their spinning movement is therefore not
-            discernible.
-          </p>
-          <p>
-            I need the nine earring gears to have 1/4 the number of teeth as the
-            central gear.
-          </p>
         </WideContainer>
         <WideContainer>
           <p>
@@ -137,13 +158,13 @@ export default function Page() {
             src="/volts.JPG"
             alt="Close up of multimeter volt reading"
           />
-          <p>My volt reading (parallel across the motor)</p>
+          <p>My average volt reading (parallel across the motor)</p>
 
           <PlainMediumImage
             src="/ohms.jpg"
             alt="Close up of multimeter resistance reading"
           />
-          <p>My resistance reading (also parallel across the motor)</p>
+          <p>My average resistance reading (also parallel across the motor)</p>
 
           <p className="my-4">
             <i>Ohmʼs law finds V = IR</i>
