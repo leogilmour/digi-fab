@@ -19,7 +19,7 @@ export function NavBar() {
   return (
     <>
       <div className="bg-df-shade-lighter fixed z-1 flex w-full justify-around p-[10px]">
-        <NavLink href="/">PHYS S-12 2025</NavLink>
+        <NavLink href="">PHYS S-12 2025</NavLink>
         <div className="flex justify-center gap-5">
           <NavLink href="/">HOME</NavLink>
           <NavLink href="/about">ABOUT</NavLink>
