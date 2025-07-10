@@ -23,6 +23,17 @@ export function PlainMediumImage({ src, alt }: { src: string; alt: string }) {
     />
   );
 }
+export function PlainLargeImage({ src, alt }: { src: string; alt: string }) {
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={500}
+      height={500}
+      className="shadow-df-shade mt-4 rounded-md shadow-xl"
+    />
+  );
+}
 
 export function MobileImage({ src, alt }: { src: string; alt: string }) {
   return (

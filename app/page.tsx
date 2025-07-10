@@ -21,7 +21,7 @@ export default function Home() {
           <ButtonLink href={"/01-intro"}>01 - Intro</ButtonLink>
           <ButtonLink href="/02-2d-design-cutting">02 - 2D Design</ButtonLink>
           <ButtonLink href="/03-fabrication">03 - Fabrication</ButtonLink>
-          <ButtonLink>04 - Programming</ButtonLink>
+          <ButtonLink href="/04-programming">04 - Programming</ButtonLink>
           <ButtonLink>05 - 3D Design</ButtonLink>
           <ButtonLink>06 - Inputs</ButtonLink>
           <ButtonLink>07 - Outputs</ButtonLink>
