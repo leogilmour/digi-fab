@@ -26,7 +26,7 @@ function Table({ children }: { children: JSX.Element[] }) {
   );
 }
 
-function Td({ children }: { children: string }) {
+function Td({ children }: { children: string | JSX.Element }) {
   return <td className="border-spacing-2 border p-1">{children}</td>;
 }
 export function Introduction() {
@@ -164,13 +164,25 @@ export function PredictedBillOfMaterials() {
           <tr>
             <Td>Branded small kettle</Td>
             <Td>$30.99</Td>
-            <Td>https://www.bodum.com/us/en/11451-04us-bistro</Td>
+            <Td>
+              <a
+                href="https://www.bodum.com/us/en/11451-04us-bistro"
+                target="_blank"
+              >
+                https://www.bodum.com/us/en/11451-04us-bistro
+              </a>
+            </Td>
           </tr>
           <tr>
             <Td>Amazon small kettle</Td>
             <Td>$18.99</Td>
             <Td>
-              https://www.amazon.com/Portable-Electric-Stainless-Protection-Traveling/dp/B0CJTHBYZ5/ref=sr_1_6
+              <a
+                href="https://www.amazon.com/Portable-Electric-Stainless-Protection-Traveling/dp/B0CJTHBYZ5/ref=sr_1_6"
+                target="_blank"
+              >
+                https://www.amazon.com/Portable-Electric-Stainless-Protection-Traveling/dp/B0CJTHBYZ5/ref=sr_1_6
+              </a>
             </Td>
           </tr>
 
@@ -188,9 +200,24 @@ export function PredictedBillOfMaterials() {
             <Td>DIY peristaltic pump?</Td>
             <Td> </Td>
             <Td>
-              https://blog.arduino.cc/2023/02/22/a-diy-peristaltic-pump-controlled-by-an-arduino/
+              <a
+                href="https://blog.arduino.cc/2023/02/22/a-diy-peristaltic-pump-controlled-by-an-arduino/"
+                target="_blank"
+              >
+                https://blog.arduino.cc/2023/02/22/a-diy-peristaltic-pump-controlled-by-an-arduino/
+              </a>
             </Td>
           </tr>
+          <Td>Motor (+ driver) for pump</Td>
+          <Td>$4.15</Td>
+          <Td>
+            <a
+              href="https://www.wiltronics.com.au/product/10137/yellow-motor-3-12vdc-2-flats-shaft/"
+              target="_blank"
+            >
+              https://www.wiltronics.com.au/product/10137/yellow-motor-3-12vdc-2-flats-shaft/
+            </a>
+          </Td>
           <tr>
             <Td>Water level sensor</Td>
             <Td> </Td>
@@ -213,7 +240,12 @@ export function PredictedBillOfMaterials() {
             <Td>Immersion heater</Td>
             <Td>$10.40</Td>
             <Td>
-              https://www.amazon.com/gp/product/B07XZ5TZ64/ref=ox_sc_act_title_2
+              <a
+                href="https://www.amazon.com/gp/product/B07XZ5TZ64/ref=ox_sc_act_title_2"
+                target="_blank"
+              >
+                https://www.amazon.com/gp/product/B07XZ5TZ64/ref=ox_sc_act_title_2
+              </a>
             </Td>
           </tr>
           <tr>
@@ -235,7 +267,12 @@ export function PredictedBillOfMaterials() {
             <Td>DIY peristaltic pump?</Td>
             <Td> </Td>
             <Td>
-              https://blog.arduino.cc/2023/02/22/a-diy-peristaltic-pump-controlled-by-an-arduino/
+              <a
+                href="https://blog.arduino.cc/2023/02/22/a-diy-peristaltic-pump-controlled-by-an-arduino/"
+                target="_blank"
+              >
+                https://blog.arduino.cc/2023/02/22/a-diy-peristaltic-pump-controlled-by-an-arduino/
+              </a>
             </Td>
           </tr>
           <tr>
@@ -267,8 +304,15 @@ export function PredictedBillOfMaterials() {
           </tr>
           <tr>
             <Td>Motor (+ driver) for winch</Td>
-            <Td> </Td>
-            <Td> </Td>
+            <Td>$4.15</Td>
+            <Td>
+              <a
+                href="https://www.wiltronics.com.au/product/10137/yellow-motor-3-12vdc-2-flats-shaft/"
+                target="_blank"
+              >
+                https://www.wiltronics.com.au/product/10137/yellow-motor-3-12vdc-2-flats-shaft/
+              </a>
+            </Td>
           </tr>
           <tr>
             <Td>Structure</Td>
@@ -310,8 +354,15 @@ export function PredictedBillOfMaterials() {
           </tr>
           <tr>
             <Td>A microcontroller and breadboard</Td>
-            <Td> </Td>
-            <Td> </Td>
+            <Td>$8.09</Td>
+            <Td>
+              <a
+                href="https://www.digikey.com/en/products/detail/espressif-systems/ESP32-DEVKITC-32UE/12091813"
+                target="_blank"
+              >
+                https://www.digikey.com/en/products/detail/espressif-systems/ESP32-DEVKITC-32UE/12091813
+              </a>
+            </Td>
           </tr>
           <tr>
             <Td>API endpoint + user interface</Td>
