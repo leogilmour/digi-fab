@@ -206,18 +206,7 @@ void stop_motor() {
             pressed continually to trigger an event!
           </p>
         </WideContainer>
-        {/* VS CODE */}
       </WideGrid>
-      {/* <h3 className="text-df-shade-lighter my-8 text-2xl">
-        Final project thoughts
-      </h3>
-      <WideGrid>
-        <WideContainer>
-          <p>
-            
-          </p>
-        </WideContainer>
-      </WideGrid> */}
     </div>
   );
 }

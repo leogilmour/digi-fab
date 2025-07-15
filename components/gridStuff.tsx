@@ -8,12 +8,34 @@ export function Grid({ children }: { children: JSX.Element | JSX.Element[] }) {
   );
 }
 
+export function TableGrid({
+  columns,
+  children,
+}: {
+  columns: number;
+  children: JSX.Element | JSX.Element[];
+}) {
+  const gridClasses = [
+    "grid-cols-1",
+    "grid-cols-2",
+    "grid-cols-3",
+    "grid-cols-4",
+    "grid-cols-5",
+    "grid-cols-6",
+  ];
+  const getGridClass = gridClasses[columns - 1] || "grid-cols-1";
+
+  return (
+    <ul className={`grid-cols-1 md:${getGridClass} grid gap-4`}>{children}</ul>
+  );
+}
+
 export function WideGrid({
   children,
 }: {
   children: JSX.Element | JSX.Element[];
 }) {
-  return <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">{children}</ul>;
+  return <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">{children}</ul>;
 }
 
 export function ItemContainer({

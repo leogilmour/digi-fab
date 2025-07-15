@@ -14,15 +14,15 @@ export default function Home() {
           height={50}
           className="m-auto text-center invert"
         />
-        <h1 className="w-full text-center text-2xl">
+        <h1 className="w-full text-center text-3xl">
           Summer 2025: Digital Fabrication
         </h1>
         <div className="flex flex-wrap items-center justify-start gap-4 align-middle sm:flex-row">
-          <ButtonLink href={"/01-intro"}>01 - Intro</ButtonLink>
+          <ButtonLink href="/01-intro">01 - Intro</ButtonLink>
           <ButtonLink href="/02-2d-design-cutting">02 - 2D Design</ButtonLink>
           <ButtonLink href="/03-fabrication">03 - Fabrication</ButtonLink>
           <ButtonLink href="/04-programming">04 - Programming</ButtonLink>
-          <ButtonLink>05 - 3D Design</ButtonLink>
+          <ButtonLink href="/05-3d-design">05 - 3D Design</ButtonLink>
           <ButtonLink>06 - Inputs</ButtonLink>
           <ButtonLink>07 - Outputs</ButtonLink>
           <ButtonLink>08 - CNC</ButtonLink>
@@ -30,7 +30,21 @@ export default function Home() {
           <ButtonLink>Machine Building</ButtonLink>
           <ButtonLink>Final Project</ButtonLink>
         </div>
-        <p>
+        <div className="m-auto">
+          <h2 className="my-2 w-full text-center text-2xl">
+            Project progress:
+          </h2>
+          <p className="my-2 mb-8 w-full text-center text-sm">
+            <i>(Same content, just different organisation)</i>
+          </p>
+          <div className="flex flex-wrap items-center justify-start gap-4 align-middle sm:flex-row">
+            <ButtonLink href="">Kinetic Sculpture</ButtonLink>
+            <ButtonLink href="/projects/final-project">
+              Final Project
+            </ButtonLink>
+          </div>
+        </div>
+        <p className="mt-4">
           <i>Note</i>, I already have an HTML + CSS{" "}
           <a
             className="text-df-accent underline"
@@ -38,8 +52,9 @@ export default function Home() {
           >
             website
           </a>{" "}
-          hosted with GitHub Pages so I decided to build this one in NextJS +
-          Typescript and host it with Vercel.
+          hosted with GitHub Pages so I decided to build this one in NextJS
+          (Framework) + Typescript (typed JavaScript) + Tailwind (for styling)
+          and host it with Vercel.
         </p>
         <p className="text-xs">
           Image source: Rapid prototyping icons created by IYIKON -{" "}
