@@ -1,5 +1,14 @@
 {
   "prettier.singleAttributePerLine": true,
   "prettier.configPath": ".prettierrc",
-  "cSpell.words": ["canʼt", "didnʼt", "donʼt", "kerf", "thatʼs"]
+  "cSpell.words": [
+    "canʼt",
+    "didnʼt",
+    "donʼt",
+    "everyoneʼs",
+    "kerf",
+    "thatʼs",
+    "thereʼs",
+    "wasnʼt"
+  ]
 }

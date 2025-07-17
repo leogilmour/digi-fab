@@ -1,6 +1,9 @@
-import { JSX } from "react";
+import { Table, Td } from "../../../components/basicTable";
 import { TableGrid } from "../../../components/gridStuff";
 import { PlainSmallImage } from "../../../components/images";
+
+// https://www.raspberrypi.com/news/teasmade-comes-back-to-life-with-raspberry-pi/
+// the amazon jet lab example
 
 function H3({ children }: { children: string }) {
   return (
@@ -18,24 +21,20 @@ function Li({ children }: { children: string }) {
   return <li className="my-2">{children}</li>;
 }
 
-function Table({ children }: { children: JSX.Element[] }) {
-  return (
-    <table className="table-auto border-separate border-spacing-2 border">
-      {children}
-    </table>
-  );
-}
-
-function Td({ children }: { children: string | JSX.Element }) {
-  return <td className="border-spacing-2 border p-1">{children}</td>;
-}
 export function Introduction() {
   return (
     <>
       <H3>Introduction</H3>
       <p>
+        Whether inspired by Chitty Chitty Bang Bang or Wallace and Gromit, Iʼve
+        always wanted some form of household machine that only a crackpot
+        inventor would think was a necessary and good idea.
+      </p>
+      <br />
+      <p>
         In the 1950s, 60, 70s, and even the 80s, Teasmades were all the rage in
-        the UK. A brand I particularly like was called{" "}
+        the UK. Everyone could have an appliance worthy of Caractacus Potts! A
+        brand I particularly like was called{" "}
         <a
           href="https://www.teasmade.uk/the-goblin-logo/"
           className="text-df-shade-lighter underline"
@@ -56,20 +55,30 @@ export function Introduction() {
       </div>
       <p>
         I think that terrible buzzer contributed to their fall in popularity but
-        there are plenty of enthusiasts as demonstrated{" "}
+        there are plenty of Teasmade enthusiasts as demonstrated{" "}
         <a
           href="https://www.teasmade.uk/"
           className="text-df-shade-lighter underline"
         >
           <i>here</i>
-        </a>{" "}
-        who keep the old school machines alive.
+        </a>
+        , who keep the old-school machines alive.
       </p>
       <p>
         I have looked at buying an old Goblin machine but I have been deterred
         mostly by the buzzer. If only I had the skills to create my own
         version...
       </p>
+    </>
+  );
+}
+
+export function Brainstorm() {
+  return (
+    <>
+      <H3>Brainstorm</H3>
+      <H4>Time triggered boiling water machine (yes, basically a kettle)</H4>
+      <H4>Tea brewing machine</H4>
     </>
   );
 }
@@ -113,6 +122,10 @@ export function ProjectGoals() {
       <H4>Future features that I would like to add one day</H4>
       <ol className="list-inside list-disc">
         <Li>
+          A swivel drop catcher... could be a 3D printed piece on a servo that
+          sweeps 90 degrees.
+        </Li>
+        <Li>
           An extra machine component which adds a specified amount of milk from
           a tiny thermos flask. A tiny fridge would be too extreme.
         </Li>
@@ -124,6 +137,7 @@ export function ProjectGoals() {
           A S.A.D. light which slowly brightens in parallel with the tea
           preparation.
         </Li>
+        <Li>Make a DIY peristaltic pump.</Li>
       </ol>
       <H4>Project considerations</H4>
       <p>
@@ -185,7 +199,6 @@ export function PredictedBillOfMaterials() {
               </a>
             </Td>
           </tr>
-
           <tr>
             <Td>Mechanical MC-controlled toggle button</Td>
             <Td> </Td>
@@ -208,16 +221,30 @@ export function PredictedBillOfMaterials() {
               </a>
             </Td>
           </tr>
-          <Td>Motor (+ driver) for pump</Td>
-          <Td>$4.15</Td>
-          <Td>
-            <a
-              href="https://www.wiltronics.com.au/product/10137/yellow-motor-3-12vdc-2-flats-shaft/"
-              target="_blank"
-            >
-              https://www.wiltronics.com.au/product/10137/yellow-motor-3-12vdc-2-flats-shaft/
-            </a>
-          </Td>
+          <tr>
+            <Td>Motor for pump</Td>
+            <Td>$4.15</Td>
+            <Td>
+              <a
+                href="https://www.wiltronics.com.au/product/10137/yellow-motor-3-12vdc-2-flats-shaft/"
+                target="_blank"
+              >
+                https://www.wiltronics.com.au/product/10137/yellow-motor-3-12vdc-2-flats-shaft/
+              </a>
+            </Td>
+          </tr>
+          <tr>
+            <Td>L9110 driver</Td>
+            <Td>$0.99</Td>
+            <Td>
+              <a
+                href="https://www.aliexpress.us/item/3256808891302864.html"
+                target="_blank"
+              >
+                https://www.aliexpress.us/item/3256808891302864.html
+              </a>
+            </Td>
+          </tr>
           <tr>
             <Td>Water level sensor</Td>
             <Td> </Td>
@@ -249,7 +276,14 @@ export function PredictedBillOfMaterials() {
             </Td>
           </tr>
           <tr>
-            <Td>Digital thermometer</Td>
+            <Td>Heat safe water container</Td>
+            <Td>$5.50</Td>
+            <Td>
+              https://www.amazon.com/Pyrex-Container-Non-Pourous-Dishwasher-Microwave/dp/B003JZ8280/ref=sr_1_1
+            </Td>
+          </tr>
+          <tr>
+            <Td>Thermistor (digi thermometer)</Td>
             <Td> </Td>
             <Td> </Td>
           </tr>
@@ -298,12 +332,12 @@ export function PredictedBillOfMaterials() {
             <Td>Muji store</Td>
           </tr>
           <tr>
-            <Td>Alt handled sieve</Td>
+            <Td>Alt. handled sieve</Td>
             <Td>$4.49</Td>
             <Td>H Mart</Td>
           </tr>
           <tr>
-            <Td>Motor (+ driver) for winch</Td>
+            <Td>Motor for winch</Td>
             <Td>$4.15</Td>
             <Td>
               <a
@@ -313,6 +347,23 @@ export function PredictedBillOfMaterials() {
                 https://www.wiltronics.com.au/product/10137/yellow-motor-3-12vdc-2-flats-shaft/
               </a>
             </Td>
+          </tr>
+          <tr>
+            <Td>L9110 driver</Td>
+            <Td>$0.99</Td>
+            <Td>
+              <a
+                href="https://www.aliexpress.us/item/3256808891302864.html"
+                target="_blank"
+              >
+                https://www.aliexpress.us/item/3256808891302864.html
+              </a>
+            </Td>
+          </tr>
+          <tr>
+            <Td>Servo and pulley</Td>
+            <Td> </Td>
+            <Td>(An alternative to motor + driver)</Td>
           </tr>
           <tr>
             <Td>Structure</Td>

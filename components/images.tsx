@@ -34,6 +34,11 @@ export function PlainLargeImage({ src, alt }: { src: string; alt: string }) {
     />
   );
 }
+export function PngSketch({ src, alt }: { src: string; alt: string }) {
+  return (
+    <Image src={src} alt={alt} width={400} height={400} className="mt-4" />
+  );
+}
 
 export function MobileImage({ src, alt }: { src: string; alt: string }) {
   return (

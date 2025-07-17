@@ -35,7 +35,7 @@ export function WideGrid({
 }: {
   children: JSX.Element | JSX.Element[];
 }) {
-  return <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">{children}</ul>;
+  return <ul className="grid grid-cols-1 gap-8 md:grid-cols-2">{children}</ul>;
 }
 
 export function ItemContainer({
