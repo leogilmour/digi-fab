@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ButtonLink } from "../components/buttonLink";
+import { PlainLargeImage } from "../components/images";
 
 export default function Home() {
   return (
@@ -24,7 +25,7 @@ export default function Home() {
           <ButtonLink href="/04-programming">04 - Programming</ButtonLink>
           <ButtonLink href="/05-3d-design">05 - 3D Design</ButtonLink>
           <ButtonLink href="/06-electronic-inputs">06 - Inputs</ButtonLink>
-          <ButtonLink>07 - Outputs</ButtonLink>
+          <ButtonLink href="/07-outputs">07 - Outputs</ButtonLink>
           <ButtonLink>08 - CNC</ButtonLink>
           <ButtonLink>09 - Networking</ButtonLink>
           <ButtonLink>Machine Building</ButtonLink>
@@ -66,6 +67,9 @@ export default function Home() {
             Flaticon
           </a>
         </p>
+        <div className="flex w-full items-center justify-center">
+          <PlainLargeImage src="/science-centre.jpg" alt="Science Centre" />
+        </div>
       </main>
     </div>
   );

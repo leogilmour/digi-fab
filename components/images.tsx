@@ -19,7 +19,7 @@ export function PlainMediumImage({ src, alt }: { src: string; alt: string }) {
       alt={alt}
       width={240}
       height={240}
-      className="shadow-df-shade mt-4 rounded-md shadow-xl"
+      className="shadow-df-shade my-4 rounded-sm shadow-md"
     />
   );
 }
@@ -30,7 +30,7 @@ export function PlainLargeImage({ src, alt }: { src: string; alt: string }) {
       alt={alt}
       width={500}
       height={500}
-      className="shadow-df-shade mt-4 rounded-md shadow-xl"
+      className="shadow-df-shade my-4 rounded-sm shadow-sm"
     />
   );
 }

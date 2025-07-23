@@ -1,11 +1,13 @@
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Table, Td } from "../../../components/basicTable";
-import { TableGrid } from "../../../components/gridStuff";
+import { Grid, TableGrid } from "../../../components/gridStuff";
 import { PlainSmallImage } from "../../../components/images";
 
 // https://www.raspberrypi.com/news/teasmade-comes-back-to-life-with-raspberry-pi/
 // the amazon jet lab example
 
-function H3({ children }: { children: string }) {
+export function H3({ children }: { children: string }) {
   return (
     <h3 className="text-df-shade-lighter text-md my-4 font-black tracking-widest uppercase">
       {children}
@@ -78,7 +80,28 @@ export function Brainstorm() {
     <>
       <H3>Brainstorm</H3>
       <H4>Time triggered boiling water machine (yes, basically a kettle)</H4>
+      <p>
+        <i>Main issue to solve:</i> getting boiling water from machine to mug
+      </p>
+      <Grid>
+        <p>Push the bottom of the kettle up</p>
+        <p>Pull the top of the kettle down (needs an axle for rotation)</p>
+        <p>Peristaltic pump</p>
+        <p>Pressure cooker with a pipe (like the moka pot)</p>
+        <p>Urn with a tap</p>
+        <p>Drop an immersion heater directly into the mug</p>
+        <p>A siphon!</p>
+      </Grid>
       <H4>Tea brewing machine</H4>
+      <p>
+        <i>Main issue to solve:</i> getting the teabag into and out of the water
+        after a specific time period
+      </p>
+      <Grid>
+        <p>Rack and pinion</p>
+        <p>Winch and pulley</p>
+        <p>Servomotor and arm</p>
+      </Grid>
     </>
   );
 }
@@ -466,6 +489,37 @@ export function PredictedTimeline() {
   );
 }
 
+export function MvpPlan() {
+  return (
+    <>
+      <H3>MVP Plan</H3>
+      <p>MVP phase 1</p>
+      <p>Solder peristaltic pump to a microcontroller</p>
+      <p>
+        Program the microcontroller to control the pump when the water level
+        sensor confirms there is enough water in the container and the
+        thermistor confirms that the water is boiling.
+      </p>
+      <p>
+        Program the mc to stop the pump when the water level is too low in the
+        container.
+      </p>
+      <p>Build a base and stem to fix the pump to.</p>
+      <br />
+      <p>MVP phase 2</p>
+      <p>
+        Create a structure for the tea strainer and and a structure for the
+        winch.
+      </p>
+      <p>Create the winch, possibly 3d printed.</p>
+      <p>
+        Program the microcontroller to control a stepper motor (when the pump
+        has finished pumping water into the mug).
+      </p>
+    </>
+  );
+}
+
 export function HeatingOptions() {
   return (
     <>
@@ -497,6 +551,274 @@ export function HeatingOptions() {
         Thoughtlet: should the water amount be determined by the quantity in the
         kettle or by a factor that the user sets?
       </p>
+      <p>
+        I think a 3D-printed drip catcher on a servo arm could work well for
+        this.
+      </p>
+      <p>
+        3D printed drip tray with a see-saw to trigger cup detection. Aligns
+        well with central teabag dropper.
+      </p>
+      <p>
+        3D printed loop that fits over strainer handle with a hole to guide hot
+        water tube
+      </p>
+      <p>should placement of water motor be adjustable?</p>
+      <p>
+        strainer winch can have a button at the top to trigger “the top” and
+        then descent can be user controlled
+      </p>
+      <p>a cleaning program 😂</p>
+    </>
+  );
+}
+
+export function Mvp() {
+  return (
+    <div className="my-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div>
+        <p>
+          It works! The microcontroller commands the stepper motor to drop the
+          strainer into a mug. Then, if it senses water in the external
+          container, it commands the peristaltic pump to dispense the water into
+          a mug. {""}
+          <b>
+            The major missing step here is that the water has not been boiled.
+          </b>{" "}
+          The microcontroller then waits for the <i>user set</i> brew time to
+          pass before commanding the stepper motor to raise the strainer back
+          out of the mug.
+        </p>
+        <br />
+        <p>
+          At the moment, my code has hard coded flags to mock the water being
+          100°C and act as the user requested brew time. It is also set to drop
+          the strainer on boot up. This makes sense <i>if</i> it ran
+          successfully!
+        </p>
+      </div>
+      <div className="my-4">
+        <iframe
+          width="315"
+          height="560"
+          src="https://www.youtube.com/embed/z3hkoTYassY"
+          title="It moves!"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+      </div>
+      <div>
+        <H4>Declare variables and set up</H4>
+        <SyntaxHighlighter language="cpp" style={tomorrow}>
+          {`#include <Stepper.h>
+
+// pin variables
+int water_a = 13;
+int water_b = 12;
+int tea_a = 14;
+int tea_b = 27;
+int tea_c = 26;
+int tea_d = 25;
+// ESP-WROOM-32: T9 = touch pin 9 = D32 = +ve
+int water_level_touch = T9;
+
+// state variables
+bool time_to_brew = false;
+bool water_boiling = false;
+bool water_to_boil = false;
+bool pouring_water = false;
+long brew_start_time = 0;
+
+// temporary variables
+bool user_says_time_to_brew = false;
+bool reset_tea_strainer_to_brew = false;
+// LATER: needs to be
+// a user set variable
+long total_brew_time = 3000;
+
+// water level state variables
+int water_level_high = 6;
+int water_level_low = 38;
+int water_tolerance = 8;
+
+// initialise stepper
+// change this to fit the number of steps per revolution
+const int stepsPerRevolution = 2048; 
+// note: pin order essential to reverse correctly:
+Stepper myStepper(stepsPerRevolution, tea_a, tea_c, tea_b, tea_d);
+
+void setup() {
+  Serial.begin(9600);
+
+  // WATER MOTOR SET UP
+  pinMode(water_a, OUTPUT);
+  pinMode(water_b, OUTPUT);
+  digitalWrite(water_a, LOW);
+  digitalWrite(water_b, LOW);
+
+  // TEA WINCH MOTOR SET UP
+  myStepper.setSpeed(10);
+
+  // temporary set variables that will be otherwise controlled:
+  user_says_time_to_brew = true;
+  reset_tea_strainer_to_brew = true;
+}
+`}
+        </SyntaxHighlighter>
+      </div>
+      <div>
+        <H4>Functions and loop()</H4>
+        <SyntaxHighlighter language="cpp" style={tomorrow}>
+          {`// check water level functions
+bool is_there_water() {
+  int touch_water_level = touchRead(water_level_touch);
+  Serial.println(touch_water_level);
+  if (touch_water_level > (water_level_low + water_tolerance)) {
+    return false;
+  }
+  if (touch_water_level < (water_level_high + water_tolerance)) {
+    return true;
+  }
+  return false;
+}
+
+// water motor functions
+void run_water_motor(int direction) {
+  int motor_a = water_a;
+  int motor_b = water_b;
+  if (direction > 0) {
+    // reverse direction
+    motor_a = water_b;
+    motor_b = water_a;
+  }
+  digitalWrite(motor_a, HIGH);
+  digitalWrite(motor_b, LOW);
+}
+
+void stop_water_motor() {
+  digitalWrite(water_a, LOW);
+  digitalWrite(water_b, LOW);
+}
+
+bool is_it_time_to_brew() {
+  // check current time API
+  // compared with user wake up time
+  return user_says_time_to_brew;
+}
+
+void loop() {
+  // prepare set up
+  if (reset_tea_strainer_to_brew == true) {
+    myStepper.step(stepsPerRevolution);
+    reset_tea_strainer_to_brew = false;
+  }
+  // Q: IS IT TIME TO BREW?
+  if (is_it_time_to_brew()) {
+    time_to_brew = true;
+  }
+  // Q: IS THERE WATER TO BOIL?
+  if (time_to_brew && is_there_water()) {
+    water_to_boil = true;
+  } else {
+    water_to_boil = false;
+  }
+  // A: boil water
+  // Q: is water boiling?
+  water_boiling = true;
+
+  // Q: is water boiled?
+  if (time_to_brew && water_to_boil && water_boiling) {
+  // A: transfer water to mug
+    pouring_water = true;
+    run_water_motor(-1);
+  } else {
+    stop_water_motor();
+  }
+  
+  // Q: has water finished pouring over tea bag?
+  if (time_to_brew && pouring_water == true && !water_to_boil) {
+    pouring_water = false;
+    brew_start_time = millis();
+  }
+
+  // Q: has tea brewed long enough?
+  if (time_to_brew && brew_start_time != 0 && brew_start_time + total_brew_time < millis()) {
+    // Remove teabag.
+    myStepper.step(-stepsPerRevolution);
+    // A: trigger a notification of some variety, sound, light, phone notification that the tea is ready
+    // A: reset machine
+    user_says_time_to_brew = false;
+    time_to_brew = false;
+    brew_start_time = 0;
+  }
+}`}
+        </SyntaxHighlighter>
+      </div>
+    </div>
+  );
+}
+
+export function MvpReview() {
+  return (
+    <>
+      <p>
+        The next step is to experiment with heating elements. So far I have
+        found an abandoned “Mr Coffee” which has an original purpose of keeping
+        a mug warm. I have found some large immersion heaters for aquariums
+        which I have discounted due to their size. I have found the circuit
+        flexible heater elements but I would need to work out the voltage limit
+        for them and see how much water they can bring to what max temperature.
+      </p>
+      <p>
+        I had assumed that I would immerse a heater into a pyrex jug but this
+        seems unlikely now. If I go for the “sticking flexible heaters to a
+        container” option, I might need a metal container to better conduct
+        their heat but this will spanner my current copper tape sensors.
+      </p>
+      <p>
+        I also need to work on the control system, which will allow me to set
+        alarms and control the machine via a web interface, such as setting the
+        userʼs brew time. It might be useful to have an LED indicator to
+        communicate whether the machine is connected to the network or not.
+      </p>
+      <br />
+      <H4>Missing features</H4>
+      <ul className="list-disc pl-4">
+        <li>Heating element 🔥</li>
+        <li>Integrate the thermistor</li>
+        <li>Web-based user interface and API integrations</li>
+      </ul>
+      <H4>Essential developments to the current prototype</H4>
+      <ul className="list-disc pl-4">
+        <li>
+          Fit new silicon tube to replace small tear. Also extra length may be
+          desirable.
+        </li>
+        <li>
+          Add rails to the strainer fixing to minimise movement and limit on one
+          axis (Edit CAD of structure as well as the 3D print of the strainer
+          fixing)
+        </li>
+        <li>
+          Add a switch to the rail so that the MC detects a max the winch can be
+          pulled and stops the stepper motor. Can also be used to calibrate the
+          stepper motor since it will be “docked” at the extreme in either
+          direction i.e. the stepper can unwind the winch and continue until it
+          winds the other way.
+        </li>
+        <li>3D print a piece to fix the tube to the strainer</li>
+        <li>Housing for MC</li>
+        <li>Once happy with cardboard CAD model, recreate in ply / acrylic.</li>
+      </ul>
+      <H4>Nice to haves</H4>
+      <ul className="list-disc pl-4">
+        <li>tea strainer drip catcher</li>
+        <li>drip catcher under mug with see-saw to detect mug presence</li>
+        <li>
+          Yellow LED when the tea is ready. Could get gradually brighter using
+          PWM.
+        </li>
+      </ul>
     </>
   );
 }
