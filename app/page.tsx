@@ -26,7 +26,7 @@ export default function Home() {
           <ButtonLink href="/05-3d-design">05 - 3D Design</ButtonLink>
           <ButtonLink href="/06-electronic-inputs">06 - Inputs</ButtonLink>
           <ButtonLink href="/07-outputs">07 - Outputs</ButtonLink>
-          <ButtonLink>08 - CNC</ButtonLink>
+          <ButtonLink href="/08-cnc">08 - CNC</ButtonLink>
           <ButtonLink>09 - Networking</ButtonLink>
           <ButtonLink>Machine Building</ButtonLink>
           <ButtonLink>Final Project</ButtonLink>

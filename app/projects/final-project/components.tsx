@@ -83,6 +83,7 @@ export function Brainstorm() {
       <p>
         <i>Main issue to solve:</i> getting boiling water from machine to mug
       </p>
+      <br />
       <Grid>
         <p>Push the bottom of the kettle up</p>
         <p>Pull the top of the kettle down (needs an axle for rotation)</p>
@@ -97,6 +98,7 @@ export function Brainstorm() {
         <i>Main issue to solve:</i> getting the teabag into and out of the water
         after a specific time period
       </p>
+      <br />
       <Grid>
         <p>Rack and pinion</p>
         <p>Winch and pulley</p>
