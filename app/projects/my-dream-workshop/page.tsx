@@ -22,8 +22,8 @@ export default function Page() {
         <li>A breadboard</li>
         <li>Socket-socket wires</li>
         <li>Pin-socket wires</li>
-        <li>Shrink wrap for wire ends</li>
         <li>Heat gun</li>
+        <li>Shrink wrap for wire ends over solder</li>
       </ul>
       <ul>
         <li>Silicon moulding compound</li>

@@ -102,7 +102,8 @@ export default function Page() {
           <WideContainer>
             <p>
               Paper tolling is a technique where you cut out layers of paper
-              images and build them up to create a 3D effect.
+              images and build them up to create a 3D effect. Resin dioramas are
+              also very popular.
             </p>
             <br />
             <PlainMediumImage

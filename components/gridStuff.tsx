@@ -44,7 +44,7 @@ export function ItemContainer({
   children: string | JSX.Element | (string | JSX.Element)[];
 }) {
   return (
-    <li className="max-w-xs justify-center justify-items-center gap-4 text-center align-top">
+    <li className="max-w-xs justify-center gap-4 text-center align-top">
       {children}
     </li>
   );
@@ -56,8 +56,6 @@ export function WideContainer({
   children: string | JSX.Element | (string | JSX.Element)[];
 }) {
   return (
-    <li className="max-w-xl justify-center justify-items-center gap-4 align-top">
-      {children}
-    </li>
+    <li className="max-w-xl justify-center gap-4 align-top">{children}</li>
   );
 }

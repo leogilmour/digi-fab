@@ -27,7 +27,7 @@ export default function Home() {
           <ButtonLink href="/06-electronic-inputs">06 - Inputs</ButtonLink>
           <ButtonLink href="/07-outputs">07 - Outputs</ButtonLink>
           <ButtonLink href="/08-cnc">08 - CNC</ButtonLink>
-          <ButtonLink>09 - Networking</ButtonLink>
+          <ButtonLink href="/09-networking">09 - Networking</ButtonLink>
           <ButtonLink>Machine Building</ButtonLink>
           <ButtonLink>Final Project</ButtonLink>
         </div>
