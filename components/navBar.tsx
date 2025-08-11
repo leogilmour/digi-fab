@@ -46,19 +46,19 @@ function SecondaryNavLink({
 export function NavBar() {
   return (
     <>
-      <div className="bg-df-shade-lighter fixed mx-auto h-[44px] w-full">
+      <div className="bg-df-shade-lighter fixed z-3 mx-auto h-[44px] w-full">
         <div className="w-full">
-          <div className="z-1 mx-auto flex w-full max-w-5xl justify-between p-[10px] text-center">
+          <div className="mx-auto flex w-full max-w-5xl justify-between p-[10px] text-center">
+            <div className="flex justify-center gap-5">
+              <NavLink href="/">HOME</NavLink>
+              <NavLink href="/about">ABOUT</NavLink>
+            </div>
             <NavLink
               href="https://nathanmelenbrink.github.io/intro-dig-fab/index.html"
               target="_blank"
             >
               PHYS S-12 2025
             </NavLink>
-            <div className="flex justify-center gap-5">
-              <NavLink href="/">HOME</NavLink>
-              <NavLink href="/about">ABOUT</NavLink>
-            </div>
           </div>
         </div>
       </div>

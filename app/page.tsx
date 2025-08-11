@@ -31,21 +31,23 @@ export default function Home() {
           <ButtonLink href="/10-machine-building">
             10 - Machine Building
           </ButtonLink>
-          <ButtonLink>Final Project</ButtonLink>
+          <ButtonLink href="/projects/final-project">Final Project</ButtonLink>
         </div>
         <div className="m-auto">
-          <h2 className="my-2 w-full text-center text-2xl">
-            Project progress:
-          </h2>
-          <p className="my-2 mb-8 w-full text-center text-sm">
-            <i>(Same content, just different organisation)</i>
-          </p>
+          <h2 className="my-2 w-full text-center text-2xl">Projects:</h2>
+          <br />
           <div className="flex flex-wrap items-center justify-start gap-4 align-middle sm:flex-row">
             <ButtonLink href="">Kinetic Sculpture</ButtonLink>
             <ButtonLink href="/projects/final-project">
               Final Project
             </ButtonLink>
-            <ButtonLink href="">Dream Workshop Tool List</ButtonLink>
+          </div>
+          <br />
+          <div className="flex flex-wrap items-center justify-start gap-4 align-middle sm:flex-row">
+            <ButtonLink href="/projects/my-dream-workshop">
+              Dream Workshop Tool List
+            </ButtonLink>
+            <ButtonLink href="/misc">Miscellany</ButtonLink>
           </div>
         </div>
         <p className="mt-4">

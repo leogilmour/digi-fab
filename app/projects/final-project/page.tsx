@@ -33,12 +33,22 @@ export default function Page() {
   };
   return (
     <div className="m-auto max-w-7xl p-2 px-8 py-8 pb-16 sm:px-32">
-      <h1 className="my-3 text-center text-3xl">Final project</h1>
+      <h1 id="top" className="my-3 text-center text-3xl">
+        Final project
+      </h1>
       <h2 className="text-df-shade-lighter mb-8 text-center text-xl">
         <i>A machine to help you wake up in the morning, with a cup of tea.</i>
       </h2>
       <p className="text-center text-3xl">🌞 ⏰ 🫖 ☕️ 🐄</p>
       <br />
+      <p className="text-center">
+        <a
+          href="#video"
+          className="hover:text-df-accent underline-offset-4 hover:underline"
+        >
+          Skip to the video ⬇
+        </a>
+      </p>
       <div>
         <Accordion
           title="Project overview"
@@ -128,15 +138,25 @@ export default function Page() {
         >
           <CrunchTime />
         </Accordion>
-        <iframe
-          className="m-auto"
-          width="960"
-          height={540}
-          src="https://www.youtube.com/embed/SvG6iy52M8g"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        />
+        <div className="relative mx-auto aspect-video w-full max-w-4xl">
+          <iframe
+            id="video"
+            className="absolute inset-0 h-full w-full"
+            src="https://www.youtube.com/embed/SvG6iy52M8g"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          />
+        </div>
       </div>
+      <br />
+      <p className="text-center">
+        <a
+          href="#top"
+          className="hover:text-df-accent underline-offset-4 hover:underline"
+        >
+          Back to the top ⬆
+        </a>
+      </p>
     </div>
   );
 }
