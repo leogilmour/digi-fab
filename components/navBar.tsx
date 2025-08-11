@@ -77,9 +77,8 @@ export function WeekNavBar({ week }: { week: number }) {
     { previously: `05-3d-design`, next: "07-outputs" },
     { previously: `06-electronic-inputs`, next: "08-cnc" },
     { previously: `07-outputs`, next: "09-networking" },
-    { previously: `08-cnc` },
-    // { previously: `08-cnc`, next: "10-machine-building" },
-    // { previously: `09-networking`, next: "projects/final-project" },
+    { previously: `08-cnc`, next: "10-machine-building" },
+    { previously: `09-networking` },
   ];
 
   return (

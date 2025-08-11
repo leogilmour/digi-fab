@@ -179,6 +179,14 @@ export default function Page() {
             </p>
           </WideContainer>
         </WideGrid>
+        <FunH2>Resources</FunH2>
+        <a
+          href="https://www.youtube.com/watch?v=B8A_11o7QZ0"
+          target="_blank"
+          className="text-df-accent underline underline-offset-4"
+        >
+          Create Custom 3D Printable Gears in Fusion 360
+        </a>
       </div>
     </WeeklyWrapper>
   );

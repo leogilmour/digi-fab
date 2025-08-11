@@ -8,7 +8,7 @@ import {
   PredictedTimeline,
   ProjectGoals,
 } from "../projects/final-project/components";
-import { FunH2 } from "../../components/headers";
+import { FunH2, H3 } from "../../components/headers";
 import { WeeklyWrapper } from "../../components/layouts";
 
 export default function Page() {
@@ -275,10 +275,13 @@ export default function Page() {
         </WideGrid>
         <FunH2>Final Project</FunH2>
         <br />
+        <H3>Project Goals</H3>
         <ProjectGoals />
         <br />
+        <H3>Predicted Bill of Materials</H3>
         <PredictedBillOfMaterials />
         <br />
+        <H3>Predicted Timeline</H3>
         <PredictedTimeline />
       </div>
     </WeeklyWrapper>

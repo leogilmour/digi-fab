@@ -24,6 +24,8 @@ export default function Page() {
         <li>Pin-socket wires</li>
         <li>Heat gun</li>
         <li>Shrink wrap for wire ends over solder</li>
+        <li>Multimeter</li>
+        <li>Power supply</li>
       </ul>
       <ul>
         <li>Silicon moulding compound</li>
@@ -42,6 +44,16 @@ export default function Page() {
         <li>Drill bits</li>
         <li>Drill</li>
         <li>M3 nuts and screws etc</li>
+      </ul>
+      <ul>
+        <li>
+          Fusion 360 (CAD software: save as dxf for laser cutting or mesh for 3D
+          printing)
+        </li>
+        <li>Arduino IDE (programming software)</li>
+        <li>PrusaSlicer (3D printing software)</li>
+        <li>Rhino (laser cutter)</li>
+        <li>Inkscape (vinyl cutter)</li>
       </ul>
     </div>
   );

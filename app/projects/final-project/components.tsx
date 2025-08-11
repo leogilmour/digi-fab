@@ -3,20 +3,22 @@ import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Table, Td } from "../../../components/basicTable";
 import { Grid, TableGrid } from "../../../components/gridStuff";
 import { PlainSmallImage } from "../../../components/images";
+import { Para } from "../../../components/typography";
 
-// https://www.raspberrypi.com/news/teasmade-comes-back-to-life-with-raspberry-pi/
-// the amazon jet lab example
-
-export function H3({ children }: { children: string }) {
+export function H3({ children, color }: { children: string; color?: string }) {
   return (
-    <h3 className="text-df-shade-lighter text-md my-4 font-black tracking-widest uppercase">
+    <h3
+      className={`my-4 text-lg font-black tracking-widest uppercase ${
+        color ? color : "text-df-shade-lighter"
+      }`}
+    >
       {children}
     </h3>
   );
 }
 
 function H4({ children }: { children: string }) {
-  return <h4 className="text-df-shade-lighter text-md my-4">{children}</h4>;
+  return <h4 className="text-df-shade-lighter my-4 text-lg">{children}</h4>;
 }
 
 function Li({ children }: { children: string }) {
@@ -26,14 +28,13 @@ function Li({ children }: { children: string }) {
 export function Introduction() {
   return (
     <>
-      <H3>Introduction</H3>
-      <p>
-        Whether inspired by Chitty Chitty Bang Bang or Wallace and Gromit, Iʼve
-        always wanted some form of household machine that only a crackpot
-        inventor would think was a necessary and good idea.
-      </p>
-      <br />
-      <p>
+      <Para>
+        Whether inspired by <i>Chitty Chitty Bang Bang</i> or{" "}
+        <i>Wallace and Gromit</i>, Iʼve always wanted some form of household
+        machine that only a crackpot inventor would think was a necessary and
+        good idea.
+      </Para>
+      <Para>
         In the 1950s, 60, 70s, and even the 80s, Teasmades were all the rage in
         the UK. Everyone could have an appliance worthy of Caractacus Potts! A
         brand I particularly like was called{" "}
@@ -44,7 +45,7 @@ export function Introduction() {
           <i>Goblin</i>
         </a>
         , seen here in action:
-      </p>
+      </Para>
       <div className="my-4">
         <iframe
           width="400"
@@ -55,7 +56,7 @@ export function Introduction() {
           allowFullScreen
         ></iframe>
       </div>
-      <p>
+      <Para>
         I think that terrible buzzer contributed to their fall in popularity but
         there are plenty of Teasmade enthusiasts as demonstrated{" "}
         <a
@@ -65,12 +66,12 @@ export function Introduction() {
           <i>here</i>
         </a>
         , who keep the old-school machines alive.
-      </p>
-      <p>
+      </Para>
+      <Para>
         I have looked at buying an old Goblin machine but I have been deterred
         mostly by the buzzer. If only I had the skills to create my own
         version...
-      </p>
+      </Para>
     </>
   );
 }
@@ -78,7 +79,6 @@ export function Introduction() {
 export function Brainstorm() {
   return (
     <>
-      <H3>Brainstorm</H3>
       <H4>Time triggered boiling water machine (yes, basically a kettle)</H4>
       <p>
         <i>Main issue to solve:</i> getting boiling water from machine to mug
@@ -111,11 +111,10 @@ export function Brainstorm() {
 export function ProjectGoals() {
   return (
     <>
-      <H3>Project goals</H3>
       <H4>My proposed features</H4>
-      <p>A machine which:</p>
+      <p>A machine that would:</p>
       <ol>
-        <li>Queries a user-set input for a time to be ready,</li>
+        <li>Checks a user-set input for a time to be ready,</li>
         <li>
           <i>then, when suitable,</i>
         </li>
@@ -152,11 +151,12 @@ export function ProjectGoals() {
         </Li>
         <Li>
           An extra machine component which adds a specified amount of milk from
-          a tiny thermos flask. A tiny fridge would be too extreme.
+          a tiny thermos flask. (Far future: Would a tiny fridge would be too
+          extreme?)
         </Li>
         <Li>
           The ability to set the machine alarm time from household integrations
-          like Amazon Alexa devices.
+          like Amazon Alexa devices or iPhone voice assistants.
         </Li>
         <Li>
           A S.A.D. light which slowly brightens in parallel with the tea
@@ -165,22 +165,22 @@ export function ProjectGoals() {
         <Li>Make a DIY peristaltic pump.</Li>
       </ol>
       <H4>Project considerations</H4>
-      <p>
+      <Para>
         The likely web-based interface needs to be password protected so only I
         can determine when the alarm goes off 😂
-      </p>
-      <br />
-      <p>
-        Being woken up by a malfunctioning robot throwing boiling water on my
-        face...
-      </p>
-      <br />
-      <p>Internet going down meaning my alarm doesnʼt trigger</p>
-      <br />
-      <p>
+      </Para>
+      <Para>
+        How to avoid being woken up by a malfunctioning robot throwing boiling
+        water on my face...
+      </Para>
+      <Para>
+        Internet connection being interrupted, resulting in my alarm not
+        triggering
+      </Para>
+      <Para>
         Switching to and from British Summer Time meaning the machine
-        potentially mis-times the wake up call.
-      </p>
+        potentially mis-times the wake up call
+      </Para>
     </>
   );
 }
@@ -188,7 +188,6 @@ export function ProjectGoals() {
 export function PredictedBillOfMaterials() {
   return (
     <>
-      <H3>Predicted Bill of Materials</H3>
       <H4>Boiling water machine</H4>
       <p>One option:</p>
       <Table>
@@ -469,7 +468,6 @@ export function PredictedBillOfMaterials() {
 export function PredictedTimeline() {
   return (
     <>
-      <H3>Predicted timeline</H3>
       <p>
         I need to purchase pieces I donʼt have and should make a start on the
         mechanics of either the kettle or, since it is more simple, the tea bag
@@ -494,30 +492,31 @@ export function PredictedTimeline() {
 export function MvpPlan() {
   return (
     <>
-      <H3>MVP Plan</H3>
-      <p>MVP phase 1</p>
-      <p>Solder peristaltic pump to a microcontroller</p>
-      <p>
-        Program the microcontroller to control the pump when the water level
+      <H4>Phase 1</H4>
+      <Para>✅ Solder peristaltic pump to a microcontroller</Para>
+      <Para>
+        ✅ Program the microcontroller to control the pump when the water level
         sensor confirms there is enough water in the container and the
         thermistor confirms that the water is boiling.
-      </p>
-      <p>
-        Program the mc to stop the pump when the water level is too low in the
-        container.
-      </p>
-      <p>Build a base and stem to fix the pump to.</p>
+      </Para>
+      <Para>
+        ✅ Program the mc to stop the pump when the water level is too low in
+        the container.
+      </Para>
+      <Para>✅ Build a base and stem to fix the pump to.</Para>
       <br />
-      <p>MVP phase 2</p>
-      <p>
-        Create a structure for the tea strainer and and a structure for the
+      <H4>Phase 2</H4>
+      <Para>
+        ✅ Create a structure for the tea strainer and and a structure for the
         winch.
-      </p>
-      <p>Create the winch, possibly 3d printed.</p>
-      <p>
+      </Para>
+      <Para>✅ Create the winch, possibly 3d printed.</Para>
+      <Para>
         Program the microcontroller to control a stepper motor (when the pump
         has finished pumping water into the mug).
-      </p>
+      </Para>
+      <br />
+      <Para>Post MVP, I will need to integrate a heat source.</Para>
     </>
   );
 }
@@ -549,6 +548,210 @@ export function HeatingOptions() {
           bring the water into the mug.
         </p>
       </TableGrid>
+      <Para>
+        My second attempt with a bigger heating element was an improvement. The
+        water was hot enough that I did not want to keep my hand in there but
+        that is not hot enough. This experiment ran for 2h 30m.
+      </Para>
+      <Para>
+        My ideal self-constructed heating option might be a magnetic induction
+        heater. Here is a tutorial that looks promising:
+        <a
+          href="https://www.instructables.com/DIY-Induction-Stove/"
+          target="_blank"
+        >
+          DIY Induction Stove
+        </a>
+        . In conjunction with a small induction plate such as this:{" "}
+        <a
+          href="https://www.bialetti.com/it_en/piattello-induzione.html"
+          target="_blank"
+        >
+          Bialetti Induction Plate
+        </a>
+        . From some of the youtube reviews, the tutorial can be improved if
+        taking Halbach arrays into account.
+      </Para>
+      <PlainSmallImage
+        src={"/kjmagnetics.png"}
+        alt={"Alternating pole array vs Halbach array. Source: KJ Magnetics"}
+      />
+      <Para>
+        Unfortunately, while it would be fun to build this hot plate, I have to
+        be realistic with the time available and admit that I donʼt have the
+        time! So it will be a future development possibility.
+      </Para>
+      <Para>
+        Now, I am waiting for tomorrowʼs delivery of a hot pot / slow cooker.
+      </Para>
+      <Para>
+        One of the reasons the rotating magnet heater tutorial is so exciting is
+        because most of the tutorials I looked at started with a heating element
+        of some type and a relay to control it. This was the first tutorial with
+        raw materials. Examples below because they are interesting, especially
+        the sous vide ideas.
+      </Para>
+      <ul>
+        <li>
+          <a
+            href="https://www.instructables.com/Arduino-Sous-Vide-Cooker/"
+            target="_blank"
+          >
+            Arduino Sous Vide Cooker
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.instructables.com/Smart-Water-Boiler-/"
+            target="_blank"
+          >
+            Smart water boiler
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.instructables.com/Sous-vide-cooker-for-less-than-40/"
+            target="_blank"
+          >
+            Another Sous Vide Cooker
+          </a>
+        </li>
+      </ul>
+      <Para>
+        It is likely that the heating element would have had more luck if I had
+        used a metal container but that would have interfered with my touch
+        capacitance sensor for water level.
+      </Para>
+      <p>
+        Thoughtlet: should the water amount be determined by the quantity in the
+        kettle or by a factor that the user sets?
+      </p>
+      <p>
+        I think a 3D-printed drip catcher on a servo arm could work well for
+        this.
+      </p>
+      <p>
+        3D printed drip tray with a see-saw to trigger cup detection. Aligns
+        well with central teabag dropper.
+      </p>
+      <p>
+        3D printed loop that fits over strainer handle with a hole to guide hot
+        water tube
+      </p>
+      <p>should placement of water motor be adjustable?</p>
+      <p>
+        strainer winch can have a button at the top to trigger “the top” and
+        then descent can be user controlled
+      </p>
+      <p>a cleaning program 😂</p>
+    </>
+  );
+}
+
+export function Competitors() {
+  return (
+    <>
+      <p>Pros and Cons</p>
+      <TableGrid columns={2}>
+        <p>
+          {/* //
+          https://www.raspberrypi.com/news/teasmade-comes-back-to-life-with-raspberry-pi/
+          // the amazon jet lab example */}
+          <b>immersion heater</b>
+        </p>
+        <p>
+          <b>kettle</b>
+        </p>
+        <p>
+          Programmatically switch on heater. Use a digital thermometer to
+          determine when the water was boiling. On detecting 100°C I would
+          programmatically switch off the immersion blender.
+        </p>
+        <p>Create a mechanical toggle to switch on the kettle.</p>
+        <p>
+          Could descend and rise on a winch/pulley directly into the mug. If
+          there are concerns with this method, it could be in a heatproof dish
+          and the boiling water pumped out.
+        </p>
+        <p>
+          Once the mechanical toggle detects the kettle has boiled, a pump could
+          bring the water into the mug.
+        </p>
+      </TableGrid>
+      <Para>
+        My second attempt with a bigger heating element was an improvement. The
+        water was hot enough that I did not want to keep my hand in there but
+        that is not hot enough. This experiment ran for 2h 30m.
+      </Para>
+      <Para>
+        My ideal self-constructed heating option might be a magnetic induction
+        heater. Here is a tutorial that looks promising:
+        <a
+          href="https://www.instructables.com/DIY-Induction-Stove/"
+          target="_blank"
+        >
+          DIY Induction Stove
+        </a>
+        . In conjunction with a small induction plate such as this:{" "}
+        <a
+          href="https://www.bialetti.com/it_en/piattello-induzione.html"
+          target="_blank"
+        >
+          Bialetti Induction Plate
+        </a>
+        . From some of the youtube reviews, the tutorial can be improved if
+        taking Halbach arrays into account.
+      </Para>
+      <PlainSmallImage
+        src={"/kjmagnetics.png"}
+        alt={"Alternating pole array vs Halbach array. Source: KJ Magnetics"}
+      />
+      <Para>
+        Unfortunately, while it would be fun to build this hot plate, I have to
+        be realistic with the time available and admit that I donʼt have the
+        time! So it will be a future development possibility.
+      </Para>
+      <Para>
+        Now, I am waiting for tomorrowʼs delivery of a hot pot / slow cooker.
+      </Para>
+      <Para>
+        One of the reasons the rotating magnet heater tutorial is so exciting is
+        because most of the tutorials I looked at started with a heating element
+        of some type and a relay to control it. This was the first tutorial with
+        raw materials. Examples below because they are interesting, especially
+        the sous vide ideas.
+      </Para>
+      <ul>
+        <li>
+          <a
+            href="https://www.instructables.com/Arduino-Sous-Vide-Cooker/"
+            target="_blank"
+          >
+            Arduino Sous Vide Cooker
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.instructables.com/Smart-Water-Boiler-/"
+            target="_blank"
+          >
+            Smart water boiler
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.instructables.com/Sous-vide-cooker-for-less-than-40/"
+            target="_blank"
+          >
+            Another Sous Vide Cooker
+          </a>
+        </li>
+      </ul>
+      <Para>
+        It is likely that the heating element would have had more luck if I had
+        used a metal container but that would have interfered with my touch
+        capacitance sensor for water level.
+      </Para>
       <p>
         Thoughtlet: should the water amount be determined by the quantity in the
         kettle or by a factor that the user sets?
@@ -820,7 +1023,54 @@ export function MvpReview() {
           Yellow LED when the tea is ready. Could get gradually brighter using
           PWM.
         </li>
+        <li>
+          thermal insulation around the silicon tubes of the peristaltic motor
+        </li>
+        <li>
+          thermal insulation around the water container to help bring water to
+          the boil
+        </li>
       </ul>
+    </>
+  );
+}
+
+export function NextVersionPlan() {
+  return (
+    <>
+      <H4>Phase 3</H4>
+      <Para>✅ Incorporate heating pads</Para>
+      <Para>✅ Incorporate slow cooker with relay</Para>
+      <br />
+      <H4>Phase 4</H4>
+      <Para>
+        ✅ Collate server code with MVP code and boiler code and Class structure
+      </Para>
+      <Para>✅ Iterate on structure design and laser cut</Para>
+      <Para>
+        ✅ Iterate on strainer design with stabilising arms and 3D print
+      </Para>
+      <Para>🚫 Incorporate limit switch triggered by stabilising arms</Para>
+      <Para>✅ Add updated timestamp to front end of web UI</Para>
+      <Para>🚫 Add shortcut for mobile voice assitant to trigger device</Para>
+      <Para>✅ Solder mc to protoboard</Para>
+      <Para>✅ Cable management</Para>
+      <H4>Phase 5</H4>
+      <Para>🚫 3D print drip catcher</Para>
+      <Para>🚫 3D print housing for relay and h-bridges</Para>
+      <Para>🚫 Test water temperature post peristaltic pump</Para>
+    </>
+  );
+}
+
+export function CrunchTime() {
+  return (
+    <>
+      <H4>Phase 3 Delivery</H4>
+      <Para>
+        No project is delivered smoothly, even after a successful MVP stage.
+        Boiling water issues dominated my weekend.
+      </Para>
     </>
   );
 }

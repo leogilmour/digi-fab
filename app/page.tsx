@@ -28,7 +28,9 @@ export default function Home() {
           <ButtonLink href="/07-outputs">07 - Outputs</ButtonLink>
           <ButtonLink href="/08-cnc">08 - CNC</ButtonLink>
           <ButtonLink href="/09-networking">09 - Networking</ButtonLink>
-          <ButtonLink>Machine Building</ButtonLink>
+          <ButtonLink href="/10-machine-building">
+            10 - Machine Building
+          </ButtonLink>
           <ButtonLink>Final Project</ButtonLink>
         </div>
         <div className="m-auto">
@@ -43,6 +45,7 @@ export default function Home() {
             <ButtonLink href="/projects/final-project">
               Final Project
             </ButtonLink>
+            <ButtonLink href="">Dream Workshop Tool List</ButtonLink>
           </div>
         </div>
         <p className="mt-4">
@@ -57,8 +60,11 @@ export default function Home() {
           (Framework) + Typescript (typed JavaScript) + Tailwind (for styling)
           and host it with Vercel.
         </p>
+        <div className="flex w-full items-center justify-center">
+          <PlainLargeImage src="/science-centre.jpg" alt="Science Centre" />
+        </div>
         <p className="text-xs">
-          Image source: Rapid prototyping icons created by IYIKON -{" "}
+          Icon source: Rapid prototyping icons created by IYIKON -{" "}
           <a
             href="https://www.flaticon.com/free-icons/rapid-prototyping"
             title="rapid prototyping icons"
@@ -67,9 +73,6 @@ export default function Home() {
             Flaticon
           </a>
         </p>
-        <div className="flex w-full items-center justify-center">
-          <PlainLargeImage src="/science-centre.jpg" alt="Science Centre" />
-        </div>
       </main>
     </div>
   );
